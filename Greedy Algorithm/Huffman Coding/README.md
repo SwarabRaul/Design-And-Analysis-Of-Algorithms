@@ -71,6 +71,7 @@ An **alternative pseudocode** for the algorithm:
 
 - Huffman Tree:
 
+```mermaid
 flowchart TD
     A(20) -->|0| B(8)
     A --> |1| C(12)
@@ -80,6 +81,7 @@ flowchart TD
     C --> |1| G(B = 7)
     F --> |0| H(D = 2)
     F --> |1| I(C = 3)
+```
 
 ## Use Cases
 
