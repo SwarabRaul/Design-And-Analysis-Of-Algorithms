@@ -1,5 +1,8 @@
 # Folders
 node_modules/
+Testing/
 
 # Files
 *.json
+*.exe
+*.out
