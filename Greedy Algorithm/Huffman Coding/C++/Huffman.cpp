@@ -41,15 +41,12 @@ Node *buildHuffmanTree(string text)
     unordered_map<char, int> freq_map;
 
     for (char c : text)
-    {
         freq_map[c]++;
-    }
 
     priority_queue<Node *, vector<Node *>, Compare> pq;
+
     for (auto it = freq_map.begin(); it != freq_map.end(); it++)
-    {
         pq.push(new Node(it->first, it->second));
-    }
 
     while (pq.size() > 1)
     {
@@ -69,14 +66,10 @@ Node *buildHuffmanTree(string text)
 void buildHuffmanCodes(Node *root, string code, unordered_map<char, string> &codes)
 {
     if (root == nullptr)
-    {
         return;
-    }
 
     if (root->c != '\0')
-    {
         codes[root->c] = code;
-    }
 
     buildHuffmanCodes(root->left, code + "0", codes);
     buildHuffmanCodes(root->right, code + "1", codes);
@@ -87,9 +80,7 @@ string encode(string text, unordered_map<char, string> &codes)
     string encoded_text = "";
 
     for (char c : text)
-    {
         encoded_text += codes[c];
-    }
 
     return encoded_text;
 }
@@ -102,13 +93,10 @@ string decode(string encoded_text, Node *root)
     for (char c : encoded_text)
     {
         if (c == '0')
-        {
             current = current->left;
-        }
+
         else
-        {
             current = current->right;
-        }
 
         if (current->c != '\0')
         {
@@ -133,9 +121,7 @@ int main()
     cout << "Decoded text: " << decoded_text << endl;
     cout << "Huffman codes: " << endl;
     for (auto it = codes.begin(); it != codes.end(); it++)
-    {
         cout << it->first << " : " << it->second << endl;
-    }
     delete root;
     return 0;
 }
